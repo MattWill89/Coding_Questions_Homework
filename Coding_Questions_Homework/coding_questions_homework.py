@@ -39,12 +39,15 @@ def is_leap_year(a_year):
 # Question 5
 def is_consecutive(a_list):
     if not a_list:
-        return False
-    for i in range(len(a_list) - 1):
-        if a_list[i] != a_list[i+1] - 1:
-            return False
-        return True
-    
-print(is_consecutive([1, 2, 3, 4, 5]))  
-print(is_consecutive([1, 2, 4, 5]))     
-print(is_consecutive([]))              
+        return False  
+
+    min_num = min(a_list)
+    max_num = max(a_list)
+    expected_sum = sum(range(min_num, max_num + 1))
+    actual_sum = sum(a_list)
+
+    return expected_sum == actual_sum
+
+# Example usage:
+print(is_consecutive([2, 3, 4, 5, 6, 7]))  
+print(is_consecutive([1, 2, 4, 5]))       
